@@ -11,14 +11,25 @@ export default function App() {
 
   const handleSend = (text) => {
     const id = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
-    setMessages((prev) => [...prev, { id, text, user: pickRandomUser() }]);
+    setMessages((prev) => [
+      ...prev,
+      { id, text, user: pickRandomUser(), likes: 0 },
+    ]);
+  };
+
+  const handleLike = (id) => {
+    setMessages((prev) =>
+      prev.map((message) =>
+        message.id === id ? { ...message, likes: message.likes + 1 } : message
+      )
+    );
   };
 
   return (
     <main className="app">
       <h1 className="app__title">Team Chat</h1>
       <section className="chat">
-        <MessageList messages={messages} />
+        <MessageList messages={messages} onLike={handleLike} />
         <ChatInput onSend={handleSend} />
       </section>
     </main>

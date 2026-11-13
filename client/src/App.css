@@ -100,3 +100,37 @@ body {
   font-weight: 600;
   color: #2563eb;
 }
+
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.message__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.like {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 0.95rem;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.like:hover {
+  background: #eff6ff;
+  border-color: #2563eb;
+}
+
+.like__count {
+  min-width: 1ch;
+  font-variant-numeric: tabular-nums;
+}
