@@ -1,0 +1,1 @@
+export const USER_LIST = ["Alan", "Bob", "Carol", "Dean", "Elin"];

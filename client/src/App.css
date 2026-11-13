@@ -93,3 +93,10 @@ body {
   background: #93c5fd;
   cursor: not-allowed;
 }
+.message__user {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2563eb;
+}

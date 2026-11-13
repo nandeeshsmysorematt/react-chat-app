@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 
 export default function MessageList({ messages }) {
@@ -18,6 +17,7 @@ export default function MessageList({ messages }) {
         <ul className="messages__list">
           {messages.map((message) => (
             <li key={message.id} className="message">
+              <span className="message__user">{message.user}</span>
               <span className="message__text">{message.text}</span>
             </li>
           ))}
