@@ -1,0 +1,16 @@
+{
+  "name": "react-chat-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "React chat app with a Socket.IO server (Exact Space assignment)",
+  "scripts": {
+    "postinstall": "npm install --prefix server && npm install --prefix client",
+    "dev": "concurrently -n server,client -c blue,green \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
