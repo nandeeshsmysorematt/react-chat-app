@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import LikeButton from "./LikeButton.jsx";
+import MessageText from "./MessageText.jsx";
 import { USER_COLORS } from "../constants.js";
 
 export default function MessageList({ messages, onLike }) {
@@ -36,7 +37,7 @@ export default function MessageList({ messages, onLike }) {
                   </span>
                   <time className="message__time">{message.time}</time>
                 </div>
-                <p className="message__text">{message.text}</p>
+                <MessageText text={message.text} />
               </div>
               <LikeButton
                 count={message.likes}

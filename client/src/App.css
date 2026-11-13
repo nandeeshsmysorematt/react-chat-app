@@ -246,3 +246,51 @@ body {
 .emoji-picker__item:hover {
   background: #eff6ff;
 }
+
+/* ---- @mentions ---- */
+.chat-input {
+  position: relative;
+}
+
+.mention-list {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 62px;
+  z-index: 10;
+  min-width: 180px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
+}
+
+.mention-list__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.mention-list__item--active,
+.mention-list__item:hover {
+  background: #eff6ff;
+}
+
+.avatar--small {
+  width: 24px;
+  height: 24px;
+  font-size: 0.8rem;
+}
+
+.mention {
+  padding: 0 4px;
+  font-weight: 600;
+  color: #1d4ed8;
+  background: #dbeafe;
+  border-radius: 4px;
+}
