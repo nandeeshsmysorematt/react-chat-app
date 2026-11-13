@@ -7,3 +7,9 @@ export const USER_COLORS = {
   Dean: "#ea580c",
   Elin: "#7c3aed",
 };
+
+export const EMOJIS = [
+  "😀", "😂", "😍", "😎", "🤔", "😢",
+  "😡", "👍", "👏", "🙏", "🔥", "🎉",
+  "❤️", "💯", "✅", "👀", "🚀", "☕",
+];
