@@ -6,6 +6,9 @@ import { USER_LIST } from "./constants.js";
 const pickRandomUser = () =>
   USER_LIST[Math.floor(Math.random() * USER_LIST.length)];
 
+const currentTime = () =>
+  new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
 export default function App() {
   const [messages, setMessages] = useState([]);
 
@@ -13,7 +16,7 @@ export default function App() {
     const id = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
     setMessages((prev) => [
       ...prev,
-      { id, text, user: pickRandomUser(), likes: 0 },
+      { id, text, user: pickRandomUser(), likes: 0, time: currentTime() },
     ]);
   };
 
@@ -27,8 +30,8 @@ export default function App() {
 
   return (
     <main className="app">
-      <h1 className="app__title">Team Chat</h1>
       <section className="chat">
+        <h1 className="chat__header">Team Chat</h1>
         <MessageList messages={messages} onLike={handleLike} />
         <ChatInput onSend={handleSend} />
       </section>

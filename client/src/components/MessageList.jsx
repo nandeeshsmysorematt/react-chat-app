@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import LikeButton from "./LikeButton.jsx";
+import { USER_COLORS } from "../constants.js";
 
 export default function MessageList({ messages, onLike }) {
   const containerRef = useRef(null);
@@ -18,9 +19,24 @@ export default function MessageList({ messages, onLike }) {
         <ul className="messages__list">
           {messages.map((message) => (
             <li key={message.id} className="message">
+              <span
+                className="avatar"
+                style={{ background: USER_COLORS[message.user] }}
+                aria-hidden="true"
+              >
+                {message.user[0]}
+              </span>
               <div className="message__body">
-                <span className="message__user">{message.user}</span>
-                <span className="message__text">{message.text}</span>
+                <div className="message__meta">
+                  <span
+                    className="message__user"
+                    style={{ color: USER_COLORS[message.user] }}
+                  >
+                    {message.user}
+                  </span>
+                  <time className="message__time">{message.time}</time>
+                </div>
+                <p className="message__text">{message.text}</p>
               </div>
               <LikeButton
                 count={message.likes}
