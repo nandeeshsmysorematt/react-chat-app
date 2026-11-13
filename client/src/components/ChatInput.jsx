@@ -4,7 +4,7 @@ import MentionList from "./MentionList.jsx";
 import { USER_LIST } from "../constants.js";
 import { getMentionQuery } from "../mentions.js";
 
-export default function ChatInput({ onSend }) {
+export default function ChatInput({ onSend, disabled = false }) {
   const [text, setText] = useState("");
   const [cursor, setCursor] = useState(0);
   const [showEmoji, setShowEmoji] = useState(false);
@@ -80,7 +80,7 @@ export default function ChatInput({ onSend }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const trimmed = text.trim();
-    if (!trimmed) return; // ignore empty messages
+    if (!trimmed || disabled) return; // ignore empty messages or while offline
     onSend(trimmed);
     setText("");
     setCursor(0);
@@ -144,7 +144,7 @@ export default function ChatInput({ onSend }) {
         onKeyDown={handleKeyDown}
         autoFocus
       />
-      <button type="submit" className="chat-input__send" disabled={!text.trim()}>
+      <button type="submit" className="chat-input__send" disabled={!text.trim() || disabled}>
         Send
       </button>
     </form>

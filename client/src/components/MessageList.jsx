@@ -3,6 +3,9 @@ import LikeButton from "./LikeButton.jsx";
 import MessageText from "./MessageText.jsx";
 import { USER_COLORS } from "../constants.js";
 
+const formatTime = (iso) =>
+  new Date(iso).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
 export default function MessageList({ messages, onLike }) {
   const containerRef = useRef(null);
 
@@ -35,7 +38,9 @@ export default function MessageList({ messages, onLike }) {
                   >
                     {message.user}
                   </span>
-                  <time className="message__time">{message.time}</time>
+                  <time className="message__time">
+                    {formatTime(message.createdAt)}
+                  </time>
                 </div>
                 <MessageText text={message.text} />
               </div>
